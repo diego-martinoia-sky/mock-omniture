@@ -46,8 +46,51 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<finalName>${artifactId}</finalName>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 	
+	<repositories>
+		<repository>
+			<id>sky-releases</id>
+			<name>sky-releases</name>
+			<url>https://services.api.bskyb.com/nexus/content/repositories/sky-releases</url>
+		</repository>
+		<repository>
+			<id>sky-snapshots</id>
+			<name>sky-snapshots</name>
+			<url>https://services.api.bskyb.com/nexus/content/repositories/sky-snapshots</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<distributionManagement>
+		<repository>
+			<id>sky-releases</id>
+			<name>sky-releases</name>
+			<url>https://services.api.bskyb.com/nexus/content/repositories/sky-releases</url>
+		</repository>
+
+		<snapshotRepository>
+			<id>sky-snapshots</id>
+			<name>sky-snapshots</name>
+			<url>https://services.api.bskyb.com/nexus/content/repositories/sky-snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 </project>
